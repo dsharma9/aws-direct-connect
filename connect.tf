@@ -1,21 +1,17 @@
 resource "aws_dx_connection" "dx_tf" {
-  name          = "tf-dx-connection"
-  bandwidth     = "1Gbps"
-  location      = "CS32A-7FL"
-  provider_name = "CenturyLink"
+  name          = var.dx_connection_name
+  bandwidth     = var.bandwidth
+  location      = var.location
+  provider_name = var.provider_name
 
-  tags = {
-    env = "test-tf"
-  }
+  tags = var.dx_tags
 }
-
-
-
 
 #### Attaching Connection to LAG 
 resource "aws_dx_connection_association" "dx-lag-association" {
-  connection_id = "${aws_dx_connection.dx_tf.id}"
-  lag_id = "${aws_dx_lag.lag1.id}"
+  connection_id = aws_dx_connection.dx_tf.id
+  lag_id        = aws_dx_lag.lag1.id
+
 }
 
 

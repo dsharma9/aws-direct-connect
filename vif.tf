@@ -1,18 +1,15 @@
 resource "aws_dx_private_virtual_interface" "tf-vif" {
-  connection_id = aws_dx_lag.lag1.id
-  name           = "vif-test-tf"
-  vlan           = 4094
-  address_family = "ipv4"
-  bgp_asn        = 65352
-  dx_gateway_id  = aws_dx_gateway.tf-dxw-1.id
-  amazon_address    = "169.254.255.1/30"
-  customer_address   = "169.254.255.2/30"
+  connection_id    = aws_dx_lag.lag1.id
+  name             = var.vif_name
+  vlan             = var.vif_vlan
+  address_family   = var.address_family
+  bgp_asn          = var.vif_bgp_asn
+  dx_gateway_id    = aws_dx_gateway.tf-dxw-1.id
+  amazon_address   = var.amazon_address
+  customer_address = var.customer_address
 
-  depends_on = [
-    aws_dx_lag.lag1,
-  ]
+  depends_on = [aws_dx_lag.lag1]
 
-  tags = {
-    Name = "private-vif-test"
-  }
+  tags = var.vif_tags
+
 }
