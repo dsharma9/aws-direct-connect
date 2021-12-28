@@ -20,4 +20,12 @@ customer_address = "169.254.255.2/30"
 vif_tags = {
   Name = "private-vif-test"
 }
-vpc_ids = ["vpc-055e1bb95bf2d1214", "vpc-04153ba579587a2cd"]
+vpc_ids  = ["vpc-055e1bb95bf2d1214", "vpc-04153ba579587a2cd"]
+vpc_cidr = "10.10.0.0/16"
+vpc_tags = {
+  Name = "VPC-DX"
+}
+subnet_cidr = "10.10.0.0/18"
+subnet_tags = {
+  Name = "subnet-dx"
+}

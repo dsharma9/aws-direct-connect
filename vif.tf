@@ -8,7 +8,7 @@ resource "aws_dx_private_virtual_interface" "tf-vif" {
   amazon_address   = var.amazon_address
   customer_address = var.customer_address
 
-  depends_on = [aws_dx_lag.lag1]
+  depends_on = [aws_dx_lag.lag1, aws_dx_connection.dx_tf]
 
   tags = var.vif_tags
 

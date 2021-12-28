@@ -22,7 +22,7 @@ output "DX-endpoint-on-which-VIF-terminates" {
   value = aws_dx_private_virtual_interface.tf-vif.aws_device
 }
 
-output  "VPN-Gateways" {
-    value = aws_vpn_gateway.vgw-1.*.id
+output "VPN-Gateways" {
+  value = aws_vpn_gateway.vgw-1.*.id
 }
 

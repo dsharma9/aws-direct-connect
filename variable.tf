@@ -113,3 +113,36 @@ variable "aws_region" {
 }
 
 
+variable "vpc_cidr" {
+  type        = string
+  description = "CIDR for DX-vpc"
+  default     = "10.0.0.0/16"
+}
+
+
+
+variable "vpc_tags" {
+  type        = map(string)
+  description = "AWS vpc tags"
+  default = {
+    Name = "VPC-dx"
+  }
+}
+
+variable "subnet_cidr" {
+  type        = string
+  description = "CIDR for DX-subnet"
+  default     = "10.0.0.0/18"
+}
+
+
+
+
+variable "subnet_tags" {
+  type        = map(string)
+  description = "AWS subenet tags"
+  default = {
+    Name = "subnet-dx"
+  }
+}
+

@@ -4,9 +4,10 @@ resource "aws_dx_gateway" "tf-dxw-1" {
 }
 
 resource "aws_dx_gateway_association" "dxw-vgw-association" {
-  count                 = length(var.vpc_ids)
+#  count                 = length(var.vpc_ids)
   dx_gateway_id         = aws_dx_gateway.tf-dxw-1.id
-  associated_gateway_id = aws_vpn_gateway.vgw-1[count.index].id
+#  associated_gateway_id = aws_vpn_gateway.vgw-1[count.index].id
+   associated_gateway_id = aws_vpn_gateway.vgw-1.id
 }
 
 
